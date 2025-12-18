@@ -99,17 +99,3 @@ iframe {
   background-color: #fff;
 }
 
-/* Responsive para pantallas pequeñas */
-@media (max-width: 768px) {
-  body {
-    flex-direction: column; /* sidebar arriba */
-  }
-
-  .sidebar {
-    width: 100%;
-  }
-
-  .main-content {
-    flex: 1;
-  }
-}
