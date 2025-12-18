@@ -102,10 +102,23 @@
   <button class="toggle-btn" id="toggleSidebar">☰</button>
   <div class="sidebar">
     <img src="img/logo_mobilize.jpg" alt="Logo Mobilize" class="logo">
-    <button id="btn5959" class="menu-button">Inicio</button>
-    <button id="btn5978" class="menu-button">Ventas</button>
-    <button id="btn5661" class="menu-button">Informe Comercial</button>
-    <button id="btn5909" class="menu-button">Producción detallada financiación</button>
+
+    <button class="menu-button main-btn" data-target="dashboardsGroup">Dashboards</button>
+    <button class="menu-button main-btn" data-target="exploresGroup">Explores</button>
+    
+    <div class="submenu" id="dashboardsGroup" style="display: none;">
+      <button id="btn5959" class="menu-button">Inicio</button>
+      <button id="btn5978" class="menu-button">Ventas</button>
+      <button id="btn5661" class="menu-button">Informe Comercial</button>
+      <button id="btn5909" class="menu-button">Producción detallada financiación</button>
+    </div>
+
+    <div class="submenu" id="exploresGroup" style="display: none;">
+      <button id="btnE1" class="menu-button">Explore 1</button>
+      <button id="btnE2" class="menu-button">Explore 2</button>
+      <button id="btnE3" class="menu-button">Explore 3</button>
+      <button id="btnE4" class="menu-button">Explore 4</button>
+    </div>
   </div>
 
   <div class="main-content">
