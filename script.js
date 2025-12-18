@@ -3,27 +3,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const sidebar = document.querySelector('.sidebar')
   const toggleBtn = document.getElementById('toggleSidebar')
 
-  // Toggle del sidebar
+  // Toggle sidebar
   toggleBtn.addEventListener('click', () => {
     sidebar.classList.toggle('hidden')
   })
 
-  // Mostrar/ocultar submenús de Dashboards/Explores
+  // Mostrar/ocultar submenus
   const mainButtons = document.querySelectorAll('.main-btn')
-
   mainButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       const targetId = btn.getAttribute('data-target')
       const targetDiv = document.getElementById(targetId)
 
-      // Ocultar todos los submenus
       document.querySelectorAll('.submenu').forEach(sub => {
-        if(sub.id !== targetId) sub.style.display = 'none'
+        if (sub.id !== targetId) sub.style.display = 'none'
       })
 
-      // Alternar el submenu seleccionado usando computed style
       if (getComputedStyle(targetDiv).display === 'none') {
-        targetDiv.style.display = 'flex' // tus submenus usan flex-direction: column
+        targetDiv.style.display = 'flex'
       } else {
         targetDiv.style.display = 'none'
       }
@@ -37,66 +34,49 @@ document.addEventListener('DOMContentLoaded', () => {
   let dealerCodeValue = null
   let monthValue = null
   let yearValue = null
-  
+
   function loadExplore(exploreName, exploreTitle){
     title.textContent = exploreTitle
     iframe.src = `https://renaultssadev.cloud.looker.com/embed/explore/zes/${exploreName}`
   }
-  
+
   function loadDashboard(dashboardId, dashboardTitle) {
       title.textContent = dashboardTitle
       
       let baseUrl = `https://renaultssadev.cloud.looker.com/embed/dashboards/${dashboardId}?embed_domain=https://laura-diaz-dvt.github.io&sdk=3&allow_login_screen=true`
-  
+
       if (brandValue) {
         const encodedBrand = encodeURIComponent(brandValue)
-        if (dashboardId === 5978) {
-          baseUrl += `&Sale+Car+Brand=${encodedBrand}`
-        } else if (dashboardId === 5909) {
-          baseUrl += `&Operation+Brand=${encodedBrand}`
-        } else {
-          baseUrl += `&Brand=${encodedBrand}`
-        }
+        if (dashboardId === 5978) baseUrl += `&Sale+Car+Brand=${encodedBrand}`
+        else if (dashboardId === 5909) baseUrl += `&Operation+Brand=${encodedBrand}`
+        else baseUrl += `&Brand=${encodedBrand}`
       }
-      if (plateCodeValue) {
-        const encodedPlateCode = encodeURIComponent(plateCodeValue)
-        baseUrl += `&Plate+Code=${encodedPlateCode}`
-      }
-      if (dealerCodeValue) {
-        const encodedDealerCode = encodeURIComponent(dealerCodeValue)
-        baseUrl += `&Dealer+Code=${encodedDealerCode}`
-      }
+      if (plateCodeValue) baseUrl += `&Plate+Code=${encodeURIComponent(plateCodeValue)}`
+      if (dealerCodeValue) baseUrl += `&Dealer+Code=${encodeURIComponent(dealerCodeValue)}`
       if (monthValue) {
         const encodedMonth = encodeURIComponent(monthValue)
-        if (dashboardId === 5909) {
-          baseUrl += `&Fecha+Contratos+Month+Name=${encodedMonth}`
-        } else {
-          baseUrl += `&Fecha+Month+Name=${encodedMonth}`
-        }
+        baseUrl += (dashboardId === 5909 ? `&Fecha+Contratos+Month+Name=${encodedMonth}` : `&Fecha+Month+Name=${encodedMonth}`)
       }
       if (yearValue) {
         const encodedYear = encodeURIComponent(yearValue)
-        if (dashboardId === 5909) {
-          baseUrl += `&Fecha+Contratos+Year=${encodedYear}`
-        } else {
-          baseUrl += `&Fecha+Year=${encodedYear}`
-        }
+        baseUrl += (dashboardId === 5909 ? `&Fecha+Contratos+Year=${encodedYear}` : `&Fecha+Year=${encodedYear}`)
       }
-  
+
       iframe.src = baseUrl
   }
-  
-  // Botones dashboards
+
+  // Dashboards
   document.getElementById('btnD5959').addEventListener('click', () => loadDashboard(5959, 'Bienvenida/o al Portal Mobilize'))
   document.getElementById('btnD5978').addEventListener('click', () => loadDashboard(5978, 'Ventas'))
   document.getElementById('btnD5661').addEventListener('click', () => loadDashboard(5661, 'Informe Comercial'))
   document.getElementById('btnD5909').addEventListener('click', () => loadDashboard(5909, 'Producción detallada financiación'))
-  // Botones explores
-  document.getElementById('btnE_informe_comercial').addEventListener('click', () =>  loadExplore('informe_comercial', 'Informe comercial'))
-  document.getElementById('btnE_pedidos').addEventListener('click', () =>  loadExplore('fact_order, 'Pedidos'))
-  document.getElementById('btnE_ventas').addEventListener('click', () =>  loadExplore('fact_sales, 'Ventas'))
-  document.getElementById('btnE_solicitudes').addEventListener('click', () =>  loadExplore('fact_proposal, 'Solicitudes'))
-  
+
+  // Explores
+  document.getElementById('btnE_informe_comercial').addEventListener('click', () => loadExplore('informe_comercial', 'Informe comercial'))
+  document.getElementById('btnE_pedidos').addEventListener('click', () => loadExplore('fact_order', 'Pedidos'))
+  document.getElementById('btnE_ventas').addEventListener('click', () => loadExplore('fact_sales', 'Ventas'))
+  document.getElementById('btnE_solicitudes').addEventListener('click', () => loadExplore('fact_proposal', 'Solicitudes'))
+
   // Escuchar eventos del dashboard
   window.addEventListener("message", (event) => {
     if (event.source !== iframe.contentWindow ||
