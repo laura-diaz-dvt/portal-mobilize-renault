@@ -19,8 +19,12 @@ mainButtons.forEach(btn => {
       if(sub.id !== targetId) sub.style.display = 'none'
     })
 
-    // Alternar el submenu seleccionado
-    targetDiv.style.display = targetDiv.style.display === 'none' ? 'block' : 'none'
+    // Alternar el submenu seleccionado usando computed style
+    if (getComputedStyle(targetDiv).display === 'none') {
+      targetDiv.style.display = 'flex' // como tus submenus usan flex-direction: column
+    } else {
+      targetDiv.style.display = 'none'
+    }
   })
 })
 
