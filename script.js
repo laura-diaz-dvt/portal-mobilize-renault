@@ -5,6 +5,24 @@ toggleBtn.addEventListener('click', () => {
   sidebar.classList.toggle('hidden')
 })
 
+// Mostrar/ocultar submenús de Dashboards/Explores
+const mainButtons = document.querySelectorAll('.main-btn')
+
+mainButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const targetId = btn.getAttribute('data-target')
+    const targetDiv = document.getElementById(targetId)
+
+    // Ocultar todos los submenus
+    document.querySelectorAll('.submenu').forEach(sub => {
+      if(sub.id !== targetId) sub.style.display = 'none'
+    })
+
+    // Alternar el submenu seleccionado
+    targetDiv.style.display = targetDiv.style.display === 'none' ? 'block' : 'none'
+  })
+})
+
 const title = document.getElementById('dashboard-title')
 const iframe = document.getElementById('looker')
 let brandValue = null
@@ -56,11 +74,16 @@ function loadDashboard(dashboardId, dashboardTitle) {
     iframe.src = baseUrl
 }
 
-// Botones
-document.getElementById('btn5959').addEventListener('click', () => loadDashboard(5959, 'Bienvenida/o al Portal Mobilize'))
-document.getElementById('btn5978').addEventListener('click', () => loadDashboard(5978, 'Ventas'))
-document.getElementById('btn5661').addEventListener('click', () => loadDashboard(5661, 'Informe Comercial'))
-document.getElementById('btn5909').addEventListener('click', () => loadDashboard(5909, 'Producción detallada financiación'))
+// Botones dashboards
+document.getElementById('btnD5959').addEventListener('click', () => loadDashboard(5959, 'Bienvenida/o al Portal Mobilize'))
+document.getElementById('btnD5978').addEventListener('click', () => loadDashboard(5978, 'Ventas'))
+document.getElementById('btnD5661').addEventListener('click', () => loadDashboard(5661, 'Informe Comercial'))
+document.getElementById('btnD5909').addEventListener('click', () => loadDashboard(5909, 'Producción detallada financiación'))
+// Botones explores
+document.getElementById('btnE_informe_comercial').addEventListener('click', () =>  iframe.src = 'https://renaultssadev.cloud.looker.com/embed/explore/zes/informe_comercial')
+document.getElementById('btnE_pedidos').addEventListener('click', () =>  iframe.src = 'https://renaultssadev.cloud.looker.com/embed/explore/zes/fact_order')
+document.getElementById('btnE_ventas').addEventListener('click', () =>  iframe.src = 'https://renaultssadev.cloud.looker.com/embed/explore/zes/fact_sales')
+document.getElementById('btnE_solicitudes').addEventListener('click', () =>  iframe.src = 'https://renaultssadev.cloud.looker.com/embed/explore/zes/fact_proposal')
 
 // Escuchar eventos del dashboard
 window.addEventListener("message", (event) => {
