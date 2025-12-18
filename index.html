@@ -18,9 +18,8 @@
       background-color: #f5f5f5;
     }
 
-    /* Sidebar estilo menú */
     .sidebar {
-      width: 230px; /* Un poco más ancho para permitir la tabulación */
+      width: 230px;
       background-color: black;
       color: white;
       display: flex;
@@ -56,7 +55,6 @@
       margin-bottom: 40px;
     }
 
-    /* Contenedor para agrupar botón y su submenú */
     .menu-group {
       width: 100%;
       display: flex;
@@ -83,22 +81,21 @@
       background-color: #e0e0e0;
     }
 
-    /* Estilo específico para los sub-botones (Tabulados) */
     .submenu {
       display: none; /* Se activa con JS */
       flex-direction: column;
       width: 100%;
-      align-items: flex-end; /* Los empuja a la derecha */
+      align-items: flex-end;
       padding-right: 10px;
       margin-bottom: 10px;
     }
 
     .sub-button {
-      width: 150px; /* Más cortos que los principales */
+      width: 150px;
       padding: 10px;
       font-size: 14px;
       font-weight: normal;
-      background-color: #d1d1d1; /* Color gris para diferenciar */
+      background-color: #d1d1d1;
       margin: 2px 0; 
     }
 
@@ -120,7 +117,7 @@
       font-size: 28px;
       margin-bottom: 15px;
       color: #222;
-      margin-left: 50px; /* Espacio para el botón toggle */
+      margin-left: 50px;
     }
 
     iframe {
@@ -135,28 +132,28 @@
 </head>
 <body>
 
-  <button class="toggle-btn" id="toggleSidebar">☰</button>
+  <button type="button" class="toggle-btn" id="toggleSidebar">☰</button>
   
   <div class="sidebar">
     <img src="img/logo_mobilize.jpg" alt="Logo Mobilize" class="logo">
 
     <div class="menu-group">
-      <button class="menu-button main-btn" data-target="dashboardsGroup">Dashboards</button>
+      <button type="button" class="menu-button main-btn" data-target="dashboardsGroup">Dashboards</button>
       <div class="submenu" id="dashboardsGroup">
-        <button id="btnD5959" class="menu-button sub-button">Inicio</button>
-        <button id="btnD5978" class="menu-button sub-button">Ventas</button>
-        <button id="btnD5661" class="menu-button sub-button">Informe Comercial</button>
-        <button id="btnD5909" class="menu-button sub-button">Producción Detallada</button>
+        <button type="button" id="btnD5959" class="menu-button sub-button">Inicio</button>
+        <button type="button" id="btnD5978" class="menu-button sub-button">Ventas</button>
+        <button type="button" id="btnD5661" class="menu-button sub-button">Informe Comercial</button>
+        <button type="button" id="btnD5909" class="menu-button sub-button">Producción Detallada</button>
       </div>
     </div>
 
     <div class="menu-group">
-      <button class="menu-button main-btn" data-target="exploresGroup">Explores</button>
+      <button type="button" class="menu-button main-btn" data-target="exploresGroup">Explores</button>
       <div class="submenu" id="exploresGroup">
-        <button id="btnE_informe_comercial" class="menu-button sub-button">Informe Comercial</button>
-        <button id="btnE_pedidos" class="menu-button sub-button">Pedidos</button>
-        <button id="btnE_ventas" class="menu-button sub-button">Ventas</button>
-        <button id="btnE_solicitudes" class="menu-button sub-button">Solicitudes</button>
+        <button type="button" id="btnE_informe_comercial" class="menu-button sub-button">Informe Comercial</button>
+        <button type="button" id="btnE_pedidos" class="menu-button sub-button">Pedidos</button>
+        <button type="button" id="btnE_ventas" class="menu-button sub-button">Ventas</button>
+        <button type="button" id="btnE_solicitudes" class="menu-button sub-button">Solicitudes</button>
       </div>
     </div>
   </div>
@@ -170,6 +167,5 @@
   </div>
 
   <script src="script.js"></script>
-
 </body>
 </html>
