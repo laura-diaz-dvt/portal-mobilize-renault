@@ -86,10 +86,10 @@ document.getElementById('btnD5978').addEventListener('click', () => loadDashboar
 document.getElementById('btnD5661').addEventListener('click', () => loadDashboard(5661, 'Informe Comercial'))
 document.getElementById('btnD5909').addEventListener('click', () => loadDashboard(5909, 'Producción detallada financiación'))
 // Botones explores
-document.getElementById('btnE_informe_comercial').addEventListener('click', () =>  loadExplore('informe_comercial, 'Informe comercial'))
-document.getElementById('btnE_informe_comercial').addEventListener('click', () =>  loadExplore('fact_order, 'Pedidos'))
-document.getElementById('btnE_informe_comercial').addEventListener('click', () =>  loadExplore('fact_sales, 'Ventas'))
-document.getElementById('btnE_informe_comercial').addEventListener('click', () =>  loadExplore('fact_proposal, 'Solicitudes'))
+document.getElementById('btnE_informe_comercial').addEventListener('click', () =>  loadExplore('informe_comercial', 'Informe comercial'))
+document.getElementById('btnE_pedidos').addEventListener('click', () =>  loadExplore('fact_order, 'Pedidos'))
+document.getElementById('btnE_ventas').addEventListener('click', () =>  loadExplore('fact_sales, 'Ventas'))
+document.getElementById('btnE_solicitudes').addEventListener('click', () =>  loadExplore('fact_proposal, 'Solicitudes'))
 
 // Escuchar eventos del dashboard
 window.addEventListener("message", (event) => {
