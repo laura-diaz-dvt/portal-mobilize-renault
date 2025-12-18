@@ -57,6 +57,11 @@ let dealerCodeValue = null
 let monthValue = null
 let yearValue = null
 
+function loadExplore(exploreName, exploreTitle){
+  title.textContent = exploreTitle
+  iframe.src = `https://renaultssadev.cloud.looker.com/embed/explore/zes/${exploreName}`
+}
+
 function loadDashboard(dashboardId, dashboardTitle) {
     title.textContent = dashboardTitle
     
