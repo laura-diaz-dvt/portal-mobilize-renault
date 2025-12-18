@@ -5,6 +5,32 @@ toggleBtn.addEventListener('click', () => {
   sidebar.classList.toggle('hidden')
 })
 
+document.addEventListener('DOMContentLoaded', () => {
+
+  // Lógica para desplegar submenús
+  document.querySelectorAll('.main-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-target')
+      const submenu = document.getElementById(targetId)
+
+      if (submenu.style.display === 'flex') {
+        submenu.style.display = 'none'
+      } else {
+        submenu.style.display = 'flex'
+      }
+    })
+  })
+
+  // Lógica para el botón de ocultar sidebar
+  document.getElementById('toggleSidebar')
+    .addEventListener('click', () => {
+      document.querySelector('.sidebar')
+        .classList.toggle('hidden')
+    })
+
+})
+
+
 // Mostrar/ocultar submenús de Dashboards/Explores
 const mainButtons = document.querySelectorAll('.main-btn')
 
