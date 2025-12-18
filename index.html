@@ -168,26 +168,7 @@
     </iframe>
   </div>
 
-  <script>
-    // Lógica para desplegar submenús
-    document.querySelectorAll('.main-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const targetId = btn.getAttribute('data-target');
-        const submenu = document.getElementById(targetId);
-        
-        // Alternar visualización (flex para que respeten el orden)
-        if (submenu.style.display === "flex") {
-          submenu.style.display = "none";
-        } else {
-          submenu.style.display = "flex";
-        }
-      });
-    });
+  <script src="script.js"></script>
 
-    // Lógica para el botón de ocultar sidebar
-    document.getElementById('toggleSidebar').addEventListener('click', () => {
-      document.querySelector('.sidebar').classList.toggle('hidden');
-    });
-  </script>
 </body>
 </html>
