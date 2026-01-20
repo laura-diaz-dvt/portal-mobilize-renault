@@ -54,7 +54,7 @@ function loadDashboard(dashboardId) {
 
   let baseUrl =
     `https://renaultssadev.cloud.looker.com/embed/dashboards/${dashboardId}` +
-    `?embed_domain=https://laura-diaz-dvt.github.io&sdk=3`;
+    `?embed_domain=https://laura-diaz-dvt.github.io&sdk=3&allow_login_screen=true`;
 
   // recorrer los filtros definidos para ESTE dashboard
   for (const [filterKey, lookerName] of Object.entries(dashboard.filters)) {
