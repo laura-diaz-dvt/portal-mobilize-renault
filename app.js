@@ -84,7 +84,8 @@ window.addEventListener("message", (event) => {
     return;
   }
 
-  console.log("Evento Looker recibido:", { event, data });
+  console.log("Usuario app:", currentUser);
+  console.log("Evento Looker:", event.data);
 
   if (data.type === "dashboard:run:complete") {
     const filtros = data.dashboard?.dashboard_filters || {};
@@ -94,6 +95,6 @@ window.addEventListener("message", (event) => {
       if (value !== undefined) filterValues[key] = value;
     }
 
-    console.log("Filtros actuales (heredados correctamente):", filterValues);
+    // console.log("Filtros actuales (heredados correctamente):", filterValues);
   }
 })
