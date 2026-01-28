@@ -84,6 +84,8 @@ window.addEventListener("message", (event) => {
     return;
   }
 
+  console.log("Evento Looker recibido:", { event, data });
+
   if (data.type === "dashboard:run:complete") {
     const filtros = data.dashboard?.dashboard_filters || {};
 
